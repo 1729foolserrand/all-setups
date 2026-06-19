@@ -11,5 +11,5 @@ sudo su - nexus
 
 
 #manual
-sudo cd /app//nexus-3.93.0-06/bin/
+sudo cd /app/nexus-3.93.0-06/bin/
 sudo ./nexus start
