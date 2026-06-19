@@ -1,16 +1,27 @@
-sudo yum update –y
-sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+Jenkins commands:
+
+# Switch to root (admin mode for entire session)
+sudo -i
+# Update all packages to latest versions
+# Install Java 21 (Jenkins runs on Java)
+# Verify Java installation
+# Add Jenkins repository (so yum knows where to download Jenkins from)
+# Import Jenkins GPG key (security verification)
+# Install Jenkins
+# Install Git (needed for pulling code from repos)
+# Enable Jenkins to start automatically on reboot
+# Start Jenkins service now
+# Check if Jenkins is running properly
+# Exit root mode (important safety step)
+
+
+
+sudo yum update -y
+yum install java-21-amazon-corretto -y
+java -version
+sudo wget -O /etc/yum.repos.d/jenkins.repo     https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
-sudo yum upgrade
-sudo yum install java-17-amazon-corretto -y
-sudo yum install jenkins git -y
-sudo systemctl enable jenkins
-sudo systemctl start jenkins
-sudo systemctl status jenkins
-sudo mkdir -p /var/tmp_disk
-sudo chmod 1777 /var/tmp_disk
-sudo mount --bind /var/tmp_disk /tmp
-echo '/var/tmp_disk /tmp none bind 0 0' | sudo tee -a /etc/fstab
-sudo systemctl mask tmp.mount
-df -h /tmp
-sudo systemctl restart jenkins
+yum install jenkins -y
+systemctl start jenkins
+systemctl status jenkins
+yum install git -y
