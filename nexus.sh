@@ -8,5 +8,8 @@ sudo adduser nexus
 sudo chown -R nexus:nexus /app/nexus-3.93.0-06
 sudo chown -R nexus:nexus /app/sonatype-work
 sudo su - nexus
+
+
+#manual
 sudo cd /app//nexus-3.93.0-06/bin/
 sudo ./nexus start
